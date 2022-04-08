@@ -10,6 +10,10 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Models\Transaction;
+use App\Models\Cart;
+use App\Models\TransactionItem;
+
 class User extends Authenticatable
 {
   use HasApiTokens;
@@ -23,9 +27,12 @@ class User extends Authenticatable
    *
    * @var string[]
    */
+
+  // field yang dapat diisi dari mass assigment
   protected $fillable = [
     'name',
     'email',
+    'roles',
     'password',
   ];
 
@@ -34,6 +41,7 @@ class User extends Authenticatable
    *
    * @var array
    */
+
   protected $hidden = [
     'password',
     'remember_token',
@@ -58,4 +66,24 @@ class User extends Authenticatable
   protected $appends = [
     'profile_photo_url',
   ];
+
+  // membuat relasi 
+
+  // relasi ke model Transaction - one to many - satu User bisa punya banyak data Transaction
+  public function transactions()
+  {
+    return $this->hasMany(Transaction::class, 'users_id', 'id');
+  }
+
+  // relasi ke model Cart - one to many - satu User bisa punya banyak data Cart
+  public function carts()
+  {
+    return $this->hasMany(Cart::class, 'users_id', 'id');
+  }
+
+  // relasi ke model TransactionItem - one to many - satu User bisa punya banyak data TransactionItem
+  public function transaction_items()
+  {
+    return $this->hasMany(TransactionItem::class, 'users_id', 'id');
+  }
 }
