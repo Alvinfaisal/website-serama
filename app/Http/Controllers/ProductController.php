@@ -27,14 +27,17 @@ class ProductController extends Controller
       // script untuk memproses data table
       return DataTables::of($query)
         // menambakan column
-        // button edit 
+        // button gslleries,edit, delete
         ->addColumn('action', function ($product) {
           return '
-            <a href="' . route('dashboard.product.edit', $product->id) . '" class="shadow-lg bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+          <a href="' . route('dashboard.product.gallery.index', $product->id) . '" class="shadow-lg bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 m-1 px-2 rounded">
+              Gallery
+            </a>
+            <a href="' . route('dashboard.product.edit', $product->id) . '" class="shadow-lg bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 m-1 rounded">
               Ubah
             </a>
             <form class="inline-block" action="' . route('dashboard.product.destroy', $product->id) . '" method="POST">
-            <button class="border border-red-500 bg-red-500 text-white rounded-md px-2 py-1 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline" onClick="return confirm(`Yakin akan dihapus?`) ">
+            <button class="border border-red-500 bg-red-500 text-white rounded-md px-2 py-1 m-1 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline" onClick="return confirm(`Yakin akan dihapus?`) ">
               Hapus
             </button>
               ' . method_field('delete') . csrf_field() . '

@@ -77,6 +77,11 @@
                 {{-- button save --}}
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3 text-right">
+                        <a href="{{ route('dashboard.product.index') }}"
+                            class="shadow-lg bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mx-2 rounded"
+                            onclick="return confirm('Yakin kembali?')">
+                            Kembali
+                        </a>
                         <button type="submit"
                             class=" shadow-lg bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
                             onclick="return confirm('Simpan data produk?')">
