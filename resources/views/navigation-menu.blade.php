@@ -21,11 +21,11 @@
                             {{ __('Products') }}
                         </x-jet-nav-link>
 
-                        {{-- <x-jet-nav-link href="{{ route('dashboard.transaction.index') }}" :active="request()->routeIs('dashboard.transaction.index')">
+                        <x-jet-nav-link href="{{ route('dashboard.transaction.index') }}" :active="request()->routeIs('dashboard.transaction.index')">
                             {{ __('Transaction') }}
                         </x-jet-nav-link>
 
-                        <x-jet-nav-link href="{{ route('dashboard.user.index') }}" :active="request()->routeIs('dashboard.user.index')">
+                        {{-- <x-jet-nav-link href="{{ route('dashboard.user.index') }}" :active="request()->routeIs('dashboard.user.index')">
                             {{ __('User') }}
                         </x-jet-nav-link> --}}
                     @endif
@@ -172,6 +172,21 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard.index')">
                 {{ __('dashboard.index') }}
             </x-jet-responsive-nav-link>
+
+            @if (Auth::user()->roles == 'ADMIN')
+                <x-jet-responsive-nav-link href="{{ route('dashboard.product.index') }}" :active="request()->routeIs('dashboard.product.index')">
+                    {{ __('Product') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('dashboard.transaction.index') }}" :active="request()->routeIs('dashboard.transaction.index')">
+                    {{ __('Transaction') }}
+                </x-jet-responsive-nav-link>
+                {{-- <x-jet-responsive-nav-link href="{{ route('dashboard.user.index') }}" :active="request()->routeIs('dashboard.user.index')">
+                    {{ __('User') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('dashboard.my-transaction.index') }}" :active="request()->routeIs('dashboard.my-transaction.index')">
+                    {{ __('My Transaction') }}
+                </x-jet-responsive-nav-link> --}}
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->

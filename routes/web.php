@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductGalleryController;
+use App\Http\Controllers\TransactionController;
 use App\Models\ProductGallery;
 use Illuminate\Support\Facades\Route;
 
@@ -36,5 +37,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
     Route::resource('product.gallery', ProductGalleryController::class)->shallow()->only([
       'index', 'create', 'store', 'destroy'
     ]);
+    // route transaction
+    Route::resource('transaction', TransactionController::class)->only(['index', 'update', 'show', 'edit']);
   });
 });
