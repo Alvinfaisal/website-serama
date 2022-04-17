@@ -23,28 +23,35 @@ use Illuminate\Support\Facades\Route;
 // route untuk landing page
 Route::get('/', [LandingController::class, 'index'])->name('landing.index');
 Route::get('/details/{slug}', [LandingController::class, 'details'])->name('landing.details');
-Route::get('/cart', [LandingController::class, 'cart'])->name('cart');
-Route::get('/checkout/success', [LandingController::class, 'success'])->name('checkout-success');
 
 
-Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function () {
-  Route::get('/', [DashboardController::class, 'index'])->name('index');
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+  Route::get('/cart', [LandingController::class, 'cart'])->name('cart');
+  Route::post('/cart/{id}', [LandingController::class, 'cartAdd'])->name('cart-add');
+  Route::delete('/cart/{id}', [LandingController::class, 'cartDelete'])->name('cart-delete');
+  Route::post('/checkout', [LandingController::class, 'checkout'])->name('checkout');
+  Route::get('/checkout/success', [LandingController::class, 'success'])->name('checkout-success');
 
-  // hanya admin yang dapat akses
-  Route::middleware(['admin'])->group(function () {
-    // route product
-    Route::resource('product', ProductController::class);
-    // route product gallery
-    Route::resource('product.gallery', ProductGalleryController::class)->shallow()->only([
-      'index', 'create', 'store', 'destroy'
-    ]);
-    // route transaction
-    Route::resource('transaction', TransactionController::class)->only([
-      'index', 'update', 'show', 'edit'
-    ]);
-    // route user
-    Route::resource('user', UserController::class)->only([
-      'index', 'edit', 'update', 'destroy'
-    ]);
+  // route untuk dashboard cms
+  Route::name('dashboard.')->prefix('dashboard')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('index');
+
+    // hanya admin yang dapat akses
+    Route::middleware(['admin'])->group(function () {
+      // route product
+      Route::resource('product', ProductController::class);
+      // route product gallery
+      Route::resource('product.gallery', ProductGalleryController::class)->shallow()->only([
+        'index', 'create', 'store', 'destroy'
+      ]);
+      // route transaction
+      Route::resource('transaction', TransactionController::class)->only([
+        'index', 'update', 'show', 'edit'
+      ]);
+      // route user
+      Route::resource('user', UserController::class)->only([
+        'index', 'edit', 'update', 'destroy'
+      ]);
+    });
   });
 });
