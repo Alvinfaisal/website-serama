@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\MyTransactionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductGalleryController;
 use App\Http\Controllers\TransactionController;
@@ -35,6 +36,10 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
   // route untuk dashboard cms
   Route::name('dashboard.')->prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
+
+    Route::resource('my-transaction', MyTransactionController::class)->only([
+      'index', 'show'
+    ]);
 
     // hanya admin yang dapat akses
     Route::middleware(['admin'])->group(function () {
