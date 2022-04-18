@@ -102,7 +102,7 @@ class LandingController extends Controller
     // Setup midtrans variable
     $midtrans = array(
       'transaction_details' => array(
-        'order_id' =>  'LX-' . $transaction->id,
+        'order_id' =>  'SRM-' . $transaction->id,
         'gross_amount' => (int) $transaction->total_price,
       ),
       'customer_details' => array(
