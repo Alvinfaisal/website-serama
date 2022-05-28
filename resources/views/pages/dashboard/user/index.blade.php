@@ -1,48 +1,13 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('User') }}
+@extends('layouts.app-admin')
+@section('title', 'User')
+
+@section('content')
+    <div class="container px-6 mx-auto grid">
+        <h2 class="my-1 text-xl font-semibold text-gray-700 dark:text-gray-200">
+            User
         </h2>
-    </x-slot>
 
-    <x-slot name="script">
-        <script>
-            // AJAX DataTable
-            var datatable = $('#crudTable').DataTable({
-                ajax: {
-                    url: '{!! url()->current() !!}',
-                },
-                columns: [{
-                        data: 'id',
-                        name: 'id',
-                        width: '5%'
-                    },
-                    {
-                        data: 'name',
-                        name: 'name'
-                    },
-                    {
-                        data: 'email',
-                        name: 'email'
-                    },
-                    {
-                        data: 'roles',
-                        name: 'roles'
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false,
-                        width: '25%'
-                    },
-                ],
-            });
-        </script>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="py-6">
             <div class="shadow overflow-hidden sm:rounded-md">
                 <div class="px-4 py-5 bg-white sm:p-6">
                     <table id="crudTable">
@@ -61,4 +26,40 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection
+
+@push('after-script')
+    <script>
+        // AJAX DataTable
+        var datatable = $('#crudTable').DataTable({
+            ajax: {
+                url: '{!! url()->current() !!}',
+            },
+            columns: [{
+                    data: 'id',
+                    name: 'id',
+                    width: '5%'
+                },
+                {
+                    data: 'name',
+                    name: 'name'
+                },
+                {
+                    data: 'email',
+                    name: 'email'
+                },
+                {
+                    data: 'roles',
+                    name: 'roles'
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false,
+                    width: '25%'
+                },
+            ],
+        });
+    </script>
+@endpush

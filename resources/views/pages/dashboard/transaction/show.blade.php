@@ -1,37 +1,13 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+@extends('layouts.app-admin')
+@section('title', 'Show')
+
+@section('content')
+    <div class="container px-6 mx-auto grid">
+        <h2 class="my-1 text-xl font-semibold text-gray-700 dark:text-gray-200">
             Transaction &raquo; #{{ $transaction->id }} {{ $transaction->name }}
         </h2>
-    </x-slot>
 
-    <x-slot name="script">
-        <script>
-            // AJAX DataTable
-            var datatable = $('#crudTable').DataTable({
-                ajax: {
-                    url: '{!! url()->current() !!}',
-                },
-                columns: [{
-                        data: 'id',
-                        name: 'id',
-                        width: '5%'
-                    },
-                    {
-                        data: 'product.name',
-                        name: 'product.name'
-                    },
-                    {
-                        data: 'product.price',
-                        name: 'product.price'
-                    },
-                ],
-            });
-        </script>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="py-6">
             <h2 class="font-semibold text-lg text-gray-800 leading-tight mb-5">Transaction Details</h2>
 
             <div class="bg-white overflow-hidden shadow sm:rounded-lg mb-10">
@@ -82,7 +58,7 @@
             <h2 class="font-semibold text-lg text-gray-800 leading-tight mb-5">Transaction Items</h2>
             <div class="shadow overflow-hidden sm:rounded-md">
                 <div class="px-4 py-5 bg-white sm:p-6">
-                    <table id="crudTable">
+                    <table id="crudTable" style="width: 100%">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -96,4 +72,29 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection
+
+@push('after-script')
+    <script>
+        // AJAX DataTable
+        var datatable = $('#crudTable').DataTable({
+            ajax: {
+                url: '{!! url()->current() !!}',
+            },
+            columns: [{
+                    data: 'id',
+                    name: 'id',
+                    width: '5%'
+                },
+                {
+                    data: 'product.name',
+                    name: 'product.name'
+                },
+                {
+                    data: 'product.price',
+                    name: 'product.price'
+                },
+            ],
+        });
+    </script>
+@endpush

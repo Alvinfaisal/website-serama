@@ -1,12 +1,13 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+@extends('layouts.app-admin')
+@section('title', 'Status edit')
+
+@section('content')
+    <div class="container px-6 mx-auto grid">
+        <h2 class="my-1 text-xl font-semibold text-gray-700 dark:text-gray-200">
             Transaction &raquo; {{ $item->name }} &raquo; Edit
         </h2>
-    </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="py-12">
             <div>
                 @if ($errors->any())
                     <div class="mb-5" role="alert">
@@ -24,8 +25,8 @@
                         </div>
                     </div>
                 @endif
-                <form class="w-full" action="{{ route('dashboard.transaction.update', $item->id) }}"
-                    method="post" enctype="multipart/form-data">
+                <form class="w-full" action="{{ route('dashboard.transaction.update', $item->id) }}" method="post"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="flex flex-wrap -mx-3 mb-6">
@@ -60,8 +61,4 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace('description');
-    </script>
-</x-app-layout>
+@endsection
