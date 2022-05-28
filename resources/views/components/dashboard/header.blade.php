@@ -22,11 +22,11 @@
                 </div>
                 <input
                     class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
-                    type="text" placeholder="Search for projects" aria-label="Search" />
+                    type="text" placeholder="Search for dream" aria-label="Search" />
             </div>
         </div>
 
-        <ul class="flex items-end flex-shrink-0 space-x-6">
+        <ul class="flex items-center justify-center flex-shrink-0 space-x-6" style="margin-left: auto">
 
             {{-- tidak dipakai --}}
             <!-- Theme toggler for lightmode and darkmode -->
@@ -50,6 +50,7 @@
                   </template>
               </button>
           </li> --}}
+            <div class="text-gray-500">Halo, {{ Auth::user()->name }}</div>
 
             <!-- Notifications menu -->
             <li class="relative">
