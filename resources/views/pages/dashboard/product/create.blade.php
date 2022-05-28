@@ -1,12 +1,17 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {!! __('Product &raquo; Create') !!}
-        </h2>
-    </x-slot>
+@extends('layouts.app-admin')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+@section('title', 'Create')
+
+@section('content')
+
+    <div class="container px-6 mx-auto grid">
+
+        <h2 class="my-2 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+            Create product
+        </h2>
+
+        <div class="py-6">
+
             {{-- untuk pemberitahuan validasi error saat mengisi form --}}
             <div>
                 @if ($errors->any())
@@ -90,10 +95,16 @@
                     </div>
                 </div>
             </form>
+
         </div>
 
-        <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
-        <script>
-            CKEDITOR.replace('description');
-        </script>
-</x-app-layout>
+    </div>
+
+@endsection
+
+@push('after-script')
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('description');
+    </script>
+@endpush
