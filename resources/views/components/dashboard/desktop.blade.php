@@ -8,9 +8,12 @@
 
         <ul class="mt-6">
             <li class="relative px-6 py-3">
+
                 <!-- navigator  -->
-                <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                    aria-hidden="true"></span>
+                @if (request()->is('dashboard'))
+                    <span class="absolute inset-y-0 left-0 w-1     bg-purple-600 rounded-tr-lg rounded-br-lg"
+                        aria-hidden="true"></span>
+                @endif
 
                 <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
                     href="{{ route('dashboard.index') }}">
@@ -30,6 +33,13 @@
             @if (Auth::user()->roles == 'ADMIN')
                 {{-- Product navbar --}}
                 <li class="relative px-6 py-3">
+
+                    <!-- navigator  -->
+                    @if (request()->is('dashboard/product') || request()->is('dashboard/product/*') || request()->is('*/dashboard/product') || request()->is('*/dashboard/product/*'))
+                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                            aria-hidden="true"></span>
+                    @endif
+
                     <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                         href="{{ route('dashboard.product.index') }}">
                         <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -44,6 +54,13 @@
 
                 {{-- Transaction navbar --}}
                 <li class="relative px-6 py-3">
+
+                    <!-- navigator  -->
+                    @if (request()->is('dashboard/transaction') || request()->is('dashboard/transaction/*') || request()->is('*/dashboard/transaction') || request()->is('*/dashboard/transaction/*'))
+                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                            aria-hidden="true"></span>
+                    @endif
+
                     <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                         href="{{ route('dashboard.transaction.index') }}">
                         <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -58,6 +75,13 @@
 
                 {{-- User navbar --}}
                 <li class="relative px-6 py-3">
+
+                    <!-- navigator  -->
+                    @if (request()->is('dashboard/user') || request()->is('dashboard/user/*') || request()->is('*/dashboard/user') || request()->is('*/dashboard/user/*'))
+                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                            aria-hidden="true"></span>
+                    @endif
+
                     <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                         href="{{ route('dashboard.user.index') }}">
                         <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -72,6 +96,13 @@
 
             {{-- My Transaction navbar --}}
             <li class="relative px-6 py-3">
+
+                <!-- navigator  -->
+                @if (request()->is('dashboard/my-transaction') || request()->is('dashboard/my-transaction/*') || request()->is('*/dashboard/my-transaction') || request()->is('*/dashboard/my-transaction/*'))
+                    <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                        aria-hidden="true"></span>
+                @endif
+
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                     href="{{ route('dashboard.my-transaction.index') }}">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
