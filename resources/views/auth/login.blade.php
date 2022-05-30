@@ -5,7 +5,7 @@
     <div class="w-full flex flex-wrap">
 
         <!-- Login Section -->
-        <div class="w-full md:w-3/5 flex flex-col">
+        <div class="w-full md:w-2/3 flex flex-col">
 
             <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
                 <a class="text-lg font-bold text-gray-800 dark:text-gray-200" href="{{ route('landing.index') }}">
@@ -29,7 +29,7 @@
                         <label for="email" class="text-lg">Email</label>
                         <input id="email" type="email" name="email" :value="old('email')" required autofocus
                             placeholder="youremail@email.com"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1  focus:outline-none focus:shadow-outline">
                     </div>
 
                     <div class="flex flex-col pt-4">
@@ -55,8 +55,8 @@
         </div>
 
         <!-- Image Section -->
-        <div class="w-2/5 shadow-2xl">
-            <img class="object-cover w-full h-screen hidden md:block" src="{{ asset('/assets/img/bgt.png') }}">
+        <div class="w-1/3 shadow-2xl">
+            <img class="object-cover w-full h-screen hidden md:block" src="{{ asset('/assets/img/bg-login.png') }}">
         </div>
 
 

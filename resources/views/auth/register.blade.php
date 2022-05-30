@@ -1,23 +1,22 @@
 @extends('layouts.app-auth')
 @section('title', 'Register')
+
 @section('content')
     <div class="w-full flex flex-wrap">
 
         <!-- Register Section -->
-        <div class="w-full md:w-3/5 flex flex-col m-auto">
+        <div class="w-full md:w-1/3 flex flex-col">
 
-            <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-12">
-                <a class="text-lg font-bold text-gray-800 dark:text-gray-200" href="{{ route('landing.index') }}">
-                    <img class="px-6" src="{{ asset('frontend/images/content/logo-serama.svg') }}"
+            <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 ">
+
+                <a href="{{ route('landing.index') }}">
+                    <img class="mt-4 pt-4" src="{{ asset('frontend/images/content/logo-serama.svg') }}"
                         alt="Serama | Colloring your daily life with serama's" />
                 </a>
-            </div>
 
-            <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
+                {{-- <p class="text-center mt-4">Register Page</p> --}}
 
-                <p class="text-center text-2xl mt-6">Register Page</p>
-
-                <form method="POST" action="{{ route('register') }}" class="flex flex-col pt-3 md:pt-8">
+                <form method="POST" action="{{ route('register') }}" class="flex flex-col pt-3 md:pt-3">
 
                     @csrf
 
@@ -64,8 +63,8 @@
         </div>
 
         <!-- Image Section -->
-        <div class="w-2/5 shadow-2xl">
-            <img class="object-cover w-full h-screen hidden md:block" src="{{ asset('/assets/img/bgt.png') }}"
+        <div class="w-2/3 shadow-2xl">
+            <img class="object-cover w-full h-screen hidden md:block" src="{{ asset('/assets/img/bg-register.png') }}"
                 alt="Background" />
         </div>
 
