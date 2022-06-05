@@ -38,8 +38,8 @@
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
                     </div>
 
-                    <button class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8"
-                        style="background-color: #ECF39E"> Login
+                    <button class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8 rounded-lg"
+                        style="background-color: #016170"> Login
                     </button>
 
                 </form>
