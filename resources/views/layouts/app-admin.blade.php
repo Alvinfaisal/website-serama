@@ -7,6 +7,8 @@
     @include('includes.dashboard.meta')
     <title>@yield('title') - Serama </title>
 
+    @livewireStyles
+
     {{-- untuk menambahkan file styling atau css sebelum file style master --}}
     @stack('before-style')
 
@@ -40,7 +42,9 @@
             </main>
         </div>
 
+
     </div>
+
 
     {{-- untuk menambahkan script js tambahan sebelum script master --}}
     @stack('before-script')
@@ -50,6 +54,7 @@
 
     {{-- untuk menambahkan script js tambahan sesudah script master --}}
     @stack('after-script')
+
 
 </body>
 

@@ -10,7 +10,7 @@
             <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 ">
 
                 <a href="{{ route('landing.index') }}">
-                    <img class="mt-4 pt-4" src="{{ asset('frontend/images/content/logo-serama.svg') }}"
+                    <img class="mt-4 pt-4" src="{{ asset('frontend/images/logo/logo-serama.svg') }}"
                         alt="Serama | Colloring your daily life with serama's" />
                 </a>
 

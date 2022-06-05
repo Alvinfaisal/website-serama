@@ -3648,6 +3648,11 @@ select {
   background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
 }
 
+.bg-serama {
+  --tw-bg-opacity: 1;
+  background-color: rgba(71, 107, 41, var(--tw-bg-opacity));
+}
+
 .bg-red-50 {
   --tw-bg-opacity: 1;
   background-color: rgba(254, 242, 242, var(--tw-bg-opacity));

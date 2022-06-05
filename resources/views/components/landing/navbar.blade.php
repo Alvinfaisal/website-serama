@@ -1,10 +1,10 @@
     <!-- START: HEADER -->
-    <header class="{{ \Route::current()->getName() == 'landing.index' ? 'absolute' : '' }} w-full z-50 px-4">
+    <header class=" w-full z-50 px-4">
         <div class="container mx-auto py-5">
             <div class="flex flex-stretch items-center">
                 <div class="w-56 items-left flex">
                     <a href="{{ route('landing.index') }}">
-                        <img src="{{ asset('frontend/images/content/logo-serama.svg') }}"
+                        <img src="{{ asset('frontend/images/logo/logo-serama.svg') }}"
                             alt="Serama | Colloring your daily life with serama's" />
                     </a>
                 </div>
@@ -13,35 +13,28 @@
                     <ul class="fixed bg-white inset-0 flex flex-col invisible items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center"
                         id="menu">
                         <li class="mx-3 py-6 md:py-0">
-                            <a href="#"
-                                class="text-black {{ \Route::current()->getName() == 'landing.index' ? 'md:text-white' : 'md:text-black' }} hover:underline">Home</a>
+                            <a href="#" class="text-black hover:underline">Home</a>
                         </li>
                         <li class="mx-3 py-6 md:py-0">
-                            <a href="#"
-                                class="text-black {{ \Route::current()->getName() == 'landing.index' ? 'md:text-white' : 'md:text-black' }} hover:underline">Product</a>
+                            <a href="#" class="text-black hover:underline">Product</a>
                         </li>
                         <li class="mx-3 py-6 md:py-0">
-                            <a href="#"
-                                class="text-black {{ \Route::current()->getName() == 'landing.index' ? 'md:text-white' : 'md:text-black' }} hover:underline">Event</a>
+                            <a href="#" class="text-black hover:underline">Event</a>
                         </li>
                         <li class="mx-3 py-6 md:py-0">
-                            <a href="#"
-                                class="text-black {{ \Route::current()->getName() == 'landing.index' ? 'md:text-white' : 'md:text-black' }} hover:underline">Blog</a>
+                            <a href="#" class="text-black hover:underline">Blog</a>
                         </li>
                         @auth
                             <li class="mx-3 py-6 md:py-0">
-                                <a href="{{ route('dashboard.index') }}"
-                                    class="text-black {{ \Route::current()->getName() == 'landing.index' ? 'md:text-white' : 'md:text-black' }} hover:underline">Dashboard</a>
+                                <a href="{{ route('dashboard.index') }}" class="text-black hover:underline">Dashboard</a>
                             </li>
                         @endauth
                         @guest
                             <li class="mx-3 py-6 md:py-0">
-                                <a href="{{ route('login') }}"
-                                    class="text-black {{ \Route::current()->getName() == 'landing.index' ? 'md:text-white' : 'md:text-black' }} hover:underline">Login</a>
+                                <a href="{{ route('login') }}" class="text-black hover:underline">Login</a>
                             </li>
                             <li class="mx-3 py-6 md:py-0">
-                                <a href="{{ route('register') }}"
-                                    class="text-black {{ \Route::current()->getName() == 'landing.index' ? 'md:text-white' : 'md:text-black' }} hover:underline">Register</a>
+                                <a href="{{ route('register') }}" class="text-black hover:underline">Register</a>
                             </li>
                         @endguest
                     </ul>
@@ -62,8 +55,7 @@
                             </button>
                         </li>
                         <li class="ml-6">
-                            <a id="header-cart"
-                                class="flex items-center justify-center w-8 h-8 text-black {{ \Route::current()->getName() == 'landing.index' ? 'md:text-white' : 'md:text-black' }}"
+                            <a id="header-cart" class="flex items-center justify-center w-8 h-8 text-black"
                                 href="{{ route('cart') }}">
                                 <svg class="fill-current" width="26" height="24" viewBox="0 0 26 24">
                                     <path

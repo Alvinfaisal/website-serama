@@ -2,7 +2,7 @@
  <section class="">
      <div class="border-t border-b border-gray-200 py-12 mt-16 px-4">
          <div class="flex justify-center mb-8">
-             <img src="{{ asset('/frontend/images/content/logo-serama.svg') }}"
+             <img src="{{ asset('/frontend/images/logo/logo-serama.svg') }}"
                  alt="Serama  | Colloring your daily life with serama's" />
          </div>
          <aside class="container mx-auto">
@@ -34,8 +34,8 @@
                              <a href="#" class="hover:underline py-1 block">Facebook</a>
                          </li>
                          <li>
-                          <a href="#" class="hover:underline py-1 block">Tiktok</a>
-                      </li>
+                             <a href="#" class="hover:underline py-1 block">Tiktok</a>
+                         </li>
                      </ul>
                  </div>
                  <div class="px-4 w-full md:w-2/12 mb-4 md:mb-0 accordion">

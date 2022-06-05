@@ -7,7 +7,7 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-<link rel="icon" href="{{ asset('/frontend/images/content/icon.ico') }}" />
+<link rel="icon" href="{{ asset('/frontend/images/icon/icon.ico') }}" />
 
 {{-- datatable styling --}}
 <!--- Tambahkan setelah app.css --->
