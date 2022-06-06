@@ -13,10 +13,11 @@
                     <ul class="fixed bg-white inset-0 flex flex-col invisible items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center"
                         id="menu">
                         <li class="mx-3 py-6 md:py-0">
-                            <a href="#" class="text-black hover:underline">Home</a>
+                            <a href="{{ route('landing.index') }}" class="text-black hover:underline">Home</a>
                         </li>
                         <li class="mx-3 py-6 md:py-0">
-                            <a href="#" class="text-black hover:underline">Product</a>
+                            <a href="{{ route('landing.product-page') }}"
+                                class="text-black hover:underline">Product</a>
                         </li>
                         <li class="mx-3 py-6 md:py-0">
                             <a href="#" class="text-black hover:underline">Event</a>

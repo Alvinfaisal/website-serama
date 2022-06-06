@@ -534,6 +534,17 @@ video {
     border-color: #24262d;
     border-color: rgba(36, 38, 45, var(--divide-opacity));
 }
+
+.bg-serama {
+  --tw-bg-opacity: 1;
+  background-color: rgba(1, 97, 112, var(--tw-bg-opacity));
+}
+
+.bg-serama-hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(0, 147, 147, var(--tw-bg-opacity));
+}
+
 .bg-white {
     --bg-opacity: 1;
     background-color: #fff;

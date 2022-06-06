@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 // route untuk landing page
 Route::get('/', [LandingController::class, 'index'])->name('landing.index');
 Route::get('/details/{slug}', [LandingController::class, 'details'])->name('landing.details');
+Route::get('/product-page', [ProductController::class, 'product_page'])->name('landing.product-page');
 
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {

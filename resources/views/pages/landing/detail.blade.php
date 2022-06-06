@@ -11,9 +11,6 @@
                     <a href="{{ route('landing.index') }}">Home</a>
                 </li>
                 <li>
-                    <a href="#">Office Room</a>
-                </li>
-                <li>
                     <a href="#" aria-label="current-page">Details</a>
                 </li>
             </ul>
@@ -44,7 +41,7 @@
                     </div>
                     <div class="preview">
                         <div class="item rounded-lg h-full overflow-hidden">
-                            <img src="{{ $product->product_galleries()->exists()? Storage::url($product->product_galleries->first()->url): 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88B8AAsUB4ZtvXtIAAAAASUVORK5CYII=' }}"
+                            <img src="{{ $product->product_galleries()->exists() ? Storage::url($product->product_galleries->first()->url) : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88B8AAsUB4ZtvXtIAAAAASUVORK5CYII=' }}"
                                 alt="front" class="object-cover w-full h-full rounded-lg" />
                         </div>
                     </div>
@@ -98,7 +95,7 @@
                     <div class="px-3 flex-none" style="width: 320px">
                         <div class="rounded-xl p-4 pb-8 relative bg-white">
                             <div class="rounded-xl overflow-hidden card-shadow w-full h-36">
-                                <img src="{{ $recommendation->product_galleries()->exists()? Storage::url($recommendation->product_galleries->first()->url): 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88B8AAsUB4ZtvXtIAAAAASUVORK5CYII=' }}"
+                                <img src="{{ $recommendation->product_galleries()->exists() ? Storage::url($recommendation->product_galleries->first()->url) : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN88B8AAsUB4ZtvXtIAAAAASUVORK5CYII=' }}"
                                     alt="" class="w-full h-full object-cover object-center" />
                             </div>
                             <h5 class="text-lg font-semibold mt-4">{{ $recommendation->name }}</h5>

@@ -3650,7 +3650,12 @@ select {
 
 .bg-serama {
   --tw-bg-opacity: 1;
-  background-color: rgba(71, 107, 41, var(--tw-bg-opacity));
+  background-color: rgba(1, 97, 112, var(--tw-bg-opacity));
+}
+
+.bg-serama-hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(0, 147, 147, var(--tw-bg-opacity));
 }
 
 .bg-red-50 {

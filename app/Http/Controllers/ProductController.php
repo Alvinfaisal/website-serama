@@ -148,4 +148,12 @@ class ProductController extends Controller
 
     return redirect()->route('dashboard.product.index');
   }
+
+  public function product_page(Request $request)
+  {
+    $products = Product::with(['product_galleries'])->latest()->get();
+    return view('pages.landing.product-page', [
+      'products' => $products
+    ]);
+  }
 }

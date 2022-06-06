@@ -1,6 +1,7 @@
 {{-- style dashboard template form windmill-dashboard --}}
 <link
     href="{{ url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet') }}" />
+<link rel="stylesheet" href="{{ asset('/assets/css/tailwind.css') }}" />
 <link rel="stylesheet" href="{{ asset('/assets/css/tailwind.output.css') }}" />
 <link rel="stylesheet" href="{{ url('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css') }}" />
 
@@ -102,6 +103,5 @@
         background-color: #667eea !important;
         /*bg-indigo-500*/
     }
-
 </style>
 {{-- end datatable styling --}}
