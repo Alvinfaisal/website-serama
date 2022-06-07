@@ -23,7 +23,7 @@
                             <a href="#" class="text-black hover:underline">Event</a>
                         </li>
                         <li class="mx-3 py-6 md:py-0">
-                            <a href="#" class="text-black hover:underline">Blog</a>
+                            <a href="{{ route('landing.article-page') }}" class="text-black hover:underline">Blog</a>
                         </li>
                         @auth
                             <li class="mx-3 py-6 md:py-0">

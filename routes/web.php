@@ -12,6 +12,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CategoryController;
 use App\Models\Article;
+use App\Models\Category;
 use App\Models\ProductGallery;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingController::class, 'index'])->name('landing.index');
 Route::get('/details/{slug}', [LandingController::class, 'details'])->name('landing.details');
 Route::get('/product-page', [ProductController::class, 'product_page'])->name('landing.product-page');
+Route::get('/article-page', [ArticleController::class, 'article_page'])->name('landing.article-page');
+Route::get('/article/{articleSlug}', [ArticleController::class, 'article_single'])->name('landing.article-page.single');
+Route::get('/article/category/{slug}', [CategoryController::class, 'articles'])->name('category.articles');
+Route::get('/article/tag/{slug}', [TagController::class, 'articles'])->name('tag.articles');
 
 // login required to access this route
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {

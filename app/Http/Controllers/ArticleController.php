@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
+use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Carbon;
@@ -158,5 +160,30 @@ class ArticleController extends Controller
     }
 
     return $images;
+  }
+
+  public function article_page()
+  {
+    $articles = Article::latest('created_at')->paginate(9);
+    $tags = Tag::latest()->take(20)->get();
+    $categories = Category::latest()->take(20)->get();
+    return view('pages.landing.article-page', compact('articles', 'tags', 'categories'));
+  }
+
+  public function article_single(Request $request, Article $article, $slug)
+  {
+    // dd($article);
+    // $tags = "";
+    // foreach ($article->tags as $tag)  $tags .= $tag['title'] . ",";
+    // $tags = substr($tags, 0, -1);
+    // $categories = "";
+    // foreach ($article->categories as $category)  $categories .= $category['title'] . ",";
+    // $categories = substr($categories, 0, -1);
+
+    // $article->increment('viewCount');
+    // dd($article);
+    // $articles = $article->latest()->take(5)->get();
+    $article = Article::with(['tags', 'categories'])->where('slug', $slug)->firstOrFail();
+    return view('pages.landing.single-article', compact('article'));
   }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -99,5 +100,13 @@ class CategoryController extends Controller
   {
     $category->delete();
     return redirect(route('dashboard.categories.index'));
+  }
+
+  public function articles(Category $category)
+  {
+    $tags = Tag::latest()->take(20)->get();
+    $categories = Category::latest()->take(20)->get();
+    $articles = $category->articles()->paginate(9);
+    return view('pages.landing.article-page', compact('articles', 'tags', 'categories'));
   }
 }

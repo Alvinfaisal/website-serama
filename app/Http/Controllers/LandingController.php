@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CheckoutRequest;
+use App\Models\Article;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\ProductGallery;
@@ -20,15 +21,17 @@ class LandingController extends Controller
   public function index(Request $request)
   {
     $products = Product::with(['product_galleries'])->latest()->get();
+    $articles = Article::with(['tags', 'categories'])->latest()->get();
     return view('pages.landing.index', [
-      'products' => $products
+      'products' => $products,
+      'articles' => $articles
     ]);
   }
 
   public function details(Request $request, $slug)
   {
     $product = Product::with(['product_galleries'])->where('slug', $slug)->firstOrFail();
-
+    // dd($product);
     $recommendations = Product::with(['product_galleries'])->inRandomOrder()->limit(4)->get();
 
     return view('pages.landing.detail', [
