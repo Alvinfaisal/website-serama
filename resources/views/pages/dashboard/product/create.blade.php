@@ -60,9 +60,9 @@
                             for="grid-last-name">
                             Description
                         </label>
-                        <textarea name="description" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="grid-last-name" type="text"
-                            placeholder="Product Description">{{ old('description') }}</textarea>
+                        <textarea name="description"
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            id="grid-last-name" type="text" placeholder="Product Description">{{ old('description') }}</textarea>
                     </div>
                 </div>
 
@@ -103,7 +103,7 @@
 @endsection
 
 @push('after-script')
-    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    <script src="/ckeditor/ckeditor.js"></script>
     <script>
         CKEDITOR.replace('description');
     </script>

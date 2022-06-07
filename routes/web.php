@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\MyTransactionController;
@@ -7,6 +8,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductGalleryController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\CategoryController;
+use App\Models\Article;
 use App\Models\ProductGallery;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +31,7 @@ Route::get('/', [LandingController::class, 'index'])->name('landing.index');
 Route::get('/details/{slug}', [LandingController::class, 'details'])->name('landing.details');
 Route::get('/product-page', [ProductController::class, 'product_page'])->name('landing.product-page');
 
-
+// login required to access this route
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
   Route::get('/cart', [LandingController::class, 'cart'])->name('cart');
   Route::post('/cart/{id}', [LandingController::class, 'cartAdd'])->name('cart-add');
@@ -58,6 +63,18 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
       Route::resource('user', UserController::class)->only([
         'index', 'edit', 'update', 'destroy'
       ]);
+
+      //Articles
+      Route::resource('articles', ArticleController::class);
+
+      //Tags
+      Route::resource('tags', TagController::class);
+
+      //Categories
+      Route::resource('categories', CategoryController::class);
+
+      //CK editor Upload Images
+      Route::post('/upload-image', [AdminController::class, 'uploadImagesCkeditor'])->name('ckeditor.upload');
     });
   });
 });

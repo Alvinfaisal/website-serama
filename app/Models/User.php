@@ -13,6 +13,7 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\Transaction;
 use App\Models\Cart;
 use App\Models\TransactionItem;
+use App\Models\Article;
 
 class User extends Authenticatable
 {
@@ -85,5 +86,10 @@ class User extends Authenticatable
   public function transaction_items()
   {
     return $this->hasMany(TransactionItem::class, 'users_id', 'id');
+  }
+
+  public function articles()
+  {
+    return $this->hasMany(Article::class);
   }
 }
